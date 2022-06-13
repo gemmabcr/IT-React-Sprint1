@@ -32,6 +32,14 @@ header .title {
     grid-template-columns: 1fr 3fr 1fr;
 }
 
+/* header mobile */
+@media (max-width: 600px) {
+    header .title {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 header .title * {
     background-color: darkseagreen;
     height: 1em;
@@ -83,6 +91,13 @@ section article .double-paragraph {
     grid-auto-flow: column;
     grid-gap: 1em;
     background-color: transparent;
+}
+
+/* double-paragraph mobile */
+@media (max-width: 600px) {
+    section article .double-paragraph {
+        display: contents;
+    }
 }
 
 section article .double-paragraph * {
