@@ -20,7 +20,7 @@ header {
     grid-gap: 0.5em;
     grid-template-rows: 3fr 2fr;
     background-color: white;
-    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.7)), url("../images/header.jpg");
+    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.7)), url("/images/header.jpg");
     background-position: center;
     background-size: cover;
     min-height: fit-content;
@@ -34,12 +34,9 @@ nav {
     align-items: center;
 }
 
-/* header mobile */
-@media (max-width: 600px) {
-    nav {
-        display: flex;
-        flex-direction: column;
-    }
+.logoNav {
+    animation-name: minimizar;
+    animation-duration: 4s;
 }
 
 header ul {
@@ -74,7 +71,7 @@ nav .socials img {
 }
 
 .subtitle {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.15));
     margin: 0 3em;
@@ -83,6 +80,8 @@ nav .socials img {
     font-family: Didot, serif;
     font-size: 1.25em;
     text-align: center;
+    animation-name: minimizar;
+    animation-duration: 4s;
 }
 
 /************ SECTION ************/
@@ -92,13 +91,6 @@ section {
     grid-auto-flow: column;
     grid-template-columns: 3fr 1fr;
     grid-gap: 1em;
-}
-
-@media (max-width: 960px) {
-    section {
-        display: flex;
-        flex-direction: column;
-    }
 }
 
 section article {
@@ -113,13 +105,6 @@ section article .double-paragraph {
     grid-auto-flow: column;
     grid-gap: 1em;
     min-height: fit-content;
-}
-
-/* double-paragraph mobile */
-@media (max-width: 600px) {
-    section article .double-paragraph {
-        display: contents;
-    }
 }
 
 section .single-section {
@@ -139,19 +124,27 @@ section .banner-section-article {
 }
 
 .banner-cultura {
-    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url('../images/sakura.jpg')
+    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url('/images/sakura.jpg');
+    animation-name: blurred;
+    animation-duration: 2s;
 }
 
 .banner-gastronomia {
-    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url('../images/comida.jpg')
+    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url('/images/comida.jpg');
+    animation-name: blurred;
+    animation-duration: 2s;
 }
 
 .banner-turismo {
-    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url('../images/fuji.jpg')
+    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url('/images/fuji.jpg');
+    animation-name: blurred;
+    animation-duration: 2s;
 }
 
 .banner-noche {
-    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url('../images/noche.jpg')
+    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url('/images/noche.jpg');
+    animation-name: blurred;
+    animation-duration: 2s;
 }
 
 .date-text {
@@ -169,6 +162,8 @@ section .banner-section-article {
     margin-top: 0.25em;
     padding: 0.5em;
     text-transform: uppercase;
+    animation-name: deslizar;
+    animation-duration: 1s;
 }
 
 .paragraphs-section{
@@ -205,4 +200,55 @@ footer * {
     display: flex;
     justify-content: center;
     padding: 0.5em;
+}
+
+/* --- mobile --- */
+@media (max-width: 600px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    section article .double-paragraph {
+        display: contents;
+    }
+}
+
+/* --- tablet --- */
+@media (max-width: 960px) {
+    section {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* --- animacions --- */
+@keyframes blurred {
+    from {
+        filter: blur(1.5rem);
+    }
+    to {
+        filter: none;
+    }
+}
+
+@keyframes minimizar {
+    from {
+        opacity: 0;
+        transform: scale(2, 2);
+    }
+
+    to {
+        opacity: 100;
+        transform: none;
+    }
+}
+
+@keyframes deslizar {
+    from {
+        transform: scaleX(1.2);
+    }
+    to {
+        transform: none;
+    }
 }
